@@ -374,7 +374,7 @@ if [ "$DONE_SWITCH" = "no" ]; then
     ln -s . /dev/block
     ln -s /proc/mounts /etc/mtab
 
-    check_kernel_config
+    # check_kernel_config
 
     bootsplash
 
