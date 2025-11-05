@@ -2352,6 +2352,110 @@ case "$DEVICE" in
             -e 's block/bootdevice/by-name/sdf sdf ' \
             "$@"
         ;;
+
+        "fog")
+        sed -i \
+             -e   's block/bootdevice/by-name/ALIGN_TO_128K_1 sdd1 ' \ 
+             -e   's block/bootdevice/by-name/ALIGN_TO_128K_2 sdf1 ' \ 
+             -e   's block/bootdevice/by-name/abl_a sde8 ' \ 
+             -e   's block/bootdevice/by-name/abl_b sde30 ' \ 
+             -e   's block/bootdevice/by-name/apdp sde47 ' \ 
+             -e   's block/bootdevice/by-name/bluetooth_a sde5 ' \ 
+             -e   's block/bootdevice/by-name/bluetooth_b sde27 ' \ 
+             -e   's block/bootdevice/by-name/boot_a sde11 ' \ 
+             -e   's block/bootdevice/by-name/boot_b sde33 ' \ 
+             -e   's block/bootdevice/by-name/catecontentfv sde61 ' \ 
+             -e   's block/bootdevice/by-name/catefv sde60 ' \ 
+             -e   's block/bootdevice/by-name/cateloader sde53 ' \ 
+             -e   's block/bootdevice/by-name/cdt sdd2 ' \ 
+             -e   's block/bootdevice/by-name/cmnlib64_a sde13 ' \ 
+             -e   's block/bootdevice/by-name/cmnlib64_b sde35 ' \ 
+             -e   's block/bootdevice/by-name/cmnlib_a sde12 ' \ 
+             -e   's block/bootdevice/by-name/cmnlib_b sde34 ' \ 
+             -e   's block/bootdevice/by-name/countrycode sda4 ' \ 
+             -e   's block/bootdevice/by-name/cust sda8 ' \ 
+             -e   's block/bootdevice/by-name/ddr sdd3 ' \ 
+             -e   's block/bootdevice/by-name/devcfg_a sde14 ' \ 
+             -e   's block/bootdevice/by-name/devcfg_b sde36 ' \ 
+             -e   's block/bootdevice/by-name/devinfo sde45 ' \ 
+             -e   's block/bootdevice/by-name/dip sde46 ' \ 
+             -e   's block/bootdevice/by-name/dsp_a sde9 ' \ 
+             -e   's block/bootdevice/by-name/dsp_b sde31 ' \ 
+             -e   's block/bootdevice/by-name/dtbo_a sde17 ' \ 
+             -e   's block/bootdevice/by-name/dtbo_b sde39 ' \ 
+             -e   's block/bootdevice/by-name/esp sda17 ' \ 
+             -e   's block/bootdevice/by-name/featenabler_a sde21 ' \ 
+             -e   's block/bootdevice/by-name/featenabler_b sde40 ' \ 
+             -e   's block/bootdevice/by-name/ffu sda15 ' \ 
+             -e   's block/bootdevice/by-name/frp sda6 ' \ 
+             -e   's block/bootdevice/by-name/fsc sdf5 ' \ 
+             -e   's block/bootdevice/by-name/fsg sdf4 ' \ 
+             -e   's block/bootdevice/by-name/gsort sda14 ' \ 
+             -e   's block/bootdevice/by-name/hyp_a sde3 ' \ 
+             -e   's block/bootdevice/by-name/hyp_b sde25 ' \ 
+             -e   's block/bootdevice/by-name/imagefv_a sde18 ' \ 
+             -e   's block/bootdevice/by-name/imagefv_b sde41 ' \ 
+             -e   's block/bootdevice/by-name/iso sda19 ' \ 
+             -e   's block/bootdevice/by-name/keymaster_a sde10 ' \ 
+             -e   's block/bootdevice/by-name/keymaster_b sde32 ' \ 
+             -e   's block/bootdevice/by-name/keystore sda5 ' \ 
+             -e   's block/bootdevice/by-name/limits sde50 ' \ 
+             -e   's block/bootdevice/by-name/lin sda20 ' \ 
+             -e   's block/bootdevice/by-name/logdump sde55 ' \ 
+             -e   's block/bootdevice/by-name/logfs sde52 ' \ 
+             -e   's block/bootdevice/by-name/mdtp_a sde7 ' \ 
+             -e   's block/bootdevice/by-name/mdtp_b sde29 ' \ 
+             -e   's block/bootdevice/by-name/mdtpsecapp_a sde6 ' \ 
+             -e   's block/bootdevice/by-name/mdtpsecapp_b sde28 ' \ 
+             -e   's block/bootdevice/by-name/metadata sda12 ' \ 
+             -e   's block/bootdevice/by-name/minidump sda7 ' \ 
+             -e   's block/bootdevice/by-name/misc sda3 ' \ 
+             -e   's block/bootdevice/by-name/modem_a sde4 ' \ 
+             -e   's block/bootdevice/by-name/modem_b sde26 ' \ 
+             -e   's block/bootdevice/by-name/modemst1 sdf2 ' \ 
+             -e   's block/bootdevice/by-name/modemst2 sdf3 ' \ 
+             -e   's block/bootdevice/by-name/multiimgoem_a sde22 ' \ 
+             -e   's block/bootdevice/by-name/multiimgoem_b sde44 ' \ 
+             -e   's block/bootdevice/by-name/multiimgqti sde57 ' \ 
+             -e   's block/bootdevice/by-name/persist sda2 ' \ 
+             -e   's block/bootdevice/by-name/qupfw_a sde15 ' \ 
+             -e   's block/bootdevice/by-name/qupfw_b sde37 ' \ 
+             -e   's block/bootdevice/by-name/rawdump sde54 ' \ 
+             -e   's block/bootdevice/by-name/rescue sda13 ' \ 
+             -e   's block/bootdevice/by-name/rpm_a sde1 ' \ 
+             -e   's block/bootdevice/by-name/rpm_b sde23 ' \ 
+             -e   's block/bootdevice/by-name/sda sda ' \ 
+             -e   's block/bootdevice/by-name/sdb sdb ' \ 
+             -e   's block/bootdevice/by-name/sdc sdc ' \ 
+             -e   's block/bootdevice/by-name/sdd sdd ' \ 
+             -e   's block/bootdevice/by-name/sde sde ' \ 
+             -e   's block/bootdevice/by-name/sdf sdf ' \ 
+             -e   's block/bootdevice/by-name/secdata sde59 ' \ 
+             -e   's block/bootdevice/by-name/splash sde49 ' \ 
+             -e   's block/bootdevice/by-name/spunvm sde48 ' \ 
+             -e   's block/bootdevice/by-name/ssd sda1 ' \ 
+             -e   's block/bootdevice/by-name/storsec sde56 ' \ 
+             -e   's block/bootdevice/by-name/super sda9 ' \ 
+             -e   's block/bootdevice/by-name/toolsfv sde51 ' \ 
+             -e   's block/bootdevice/by-name/tz_a sde2 ' \ 
+             -e   's block/bootdevice/by-name/tz_b sde24 ' \ 
+             -e   's block/bootdevice/by-name/uefisecapp_a sde19 ' \ 
+             -e   's block/bootdevice/by-name/uefisecapp_b sde42 ' \ 
+             -e   's block/bootdevice/by-name/uefivarstore sde58 ' \ 
+             -e   's block/bootdevice/by-name/userdata sda16 ' \ 
+             -e   's block/bootdevice/by-name/vbmeta_a sde16 ' \ 
+             -e   's block/bootdevice/by-name/vbmeta_b sde38 ' \ 
+             -e   's block/bootdevice/by-name/vbmeta_system_a sda10 ' \ 
+             -e   's block/bootdevice/by-name/vbmeta_system_b sda11 ' \ 
+             -e   's block/bootdevice/by-name/vendor_boot_a sde20 ' \ 
+             -e   's block/bootdevice/by-name/vendor_boot_b sde43 ' \ 
+             -e   's block/bootdevice/by-name/win sda18 ' \ 
+             -e   's block/bootdevice/by-name/xbl_a sdb1 ' \ 
+             -e   's block/bootdevice/by-name/xbl_b sdc1 ' \ 
+             -e   's block/bootdevice/by-name/xbl_config_a sdb2 ' \ 
+             -e   's block/bootdevice/by-name/xbl_config_b sdc2 ' \ 
+             "$@"
+        ;; 
     *)
         cat <<EOF
 
