@@ -354,9 +354,11 @@ ifneq ($(PROFILES),1)
 ifeq ($(PROFILES),0)
 $(warning Missing power_profile.xml file)
 else
-$(error Multiple power_profile.xml files)
+# $(error Multiple power_profile.xml files)
+$(warning Multiple power_profile.xml files sum=$(PROFILES) dev=$(DEVICE_PACKAGE_OVERLAYS))
 endif
-PROVIDE_POWER_PROFILE := 0
+# PROVIDE_POWER_PROFILE := 0
+PROVIDE_POWER_PROFILE := 1
 endif
 
 ifeq ($(strip $(PROVIDE_POWER_PROFILE)),1)
@@ -364,6 +366,7 @@ POWER_PROFILE := $(foreach d, $(DEVICE_PACKAGE_OVERLAYS), \
    $(shell find $(d) -name power_profile.xml) \
 )
 BATTERY_CAPACITY := $(shell xmllint --xpath 'string(/device[@name="Android"]/item[@name="battery.capacity"])' $(POWER_PROFILE))
+$(warning Battery_capacity detected is $(BATTERY_CAPACITY))
 $(shell mkdir -p $(PRODUCT_OUT)/system/etc/init)
 $(shell echo -e "on boot\n    setprop ro.hybris.battery.capacity $(BATTERY_CAPACITY)" > $(PRODUCT_OUT)/system/etc/init/hybris_extras.rc)
 endif
