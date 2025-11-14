@@ -365,7 +365,8 @@ ifeq ($(strip $(PROVIDE_POWER_PROFILE)),1)
 POWER_PROFILE := $(foreach d, $(DEVICE_PACKAGE_OVERLAYS), \
    $(shell find $(d) -name power_profile.xml) \
 )
-BATTERY_CAPACITY := $(shell xmllint --xpath 'string(/device[@name="Android"]/item[@name="battery.capacity"])' $(POWER_PROFILE))
+# BATTERY_CAPACITY := $(shell xmllint --xpath 'string(/device[@name="Android"]/item[@name="battery.capacity"])' $(POWER_PROFILE))
+BATTERY_CAPACITY := $(shell python3 -c "import xml.etree.ElementTree as ET; tree = ET.parse('$(POWER_PROFILE)'); root = tree.getroot(); print(root.find('.//item[@name=\"battery.capacity\"]').text)")
 $(warning sum profiles=$(PROFILES) dev=$(DEVICE_PACKAGE_OVERLAYS) file=$(POWER_PROFILE) Battery_capacity detected is $(BATTERY_CAPACITY))
 $(shell mkdir -p $(PRODUCT_OUT)/system/etc/init)
 $(shell echo -e "on boot\n    setprop ro.hybris.battery.capacity $(BATTERY_CAPACITY)" > $(PRODUCT_OUT)/system/etc/init/hybris_extras.rc)
