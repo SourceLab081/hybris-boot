@@ -366,7 +366,7 @@ POWER_PROFILE := $(foreach d, $(DEVICE_PACKAGE_OVERLAYS), \
    $(shell find $(d) -name power_profile.xml) \
 )
 BATTERY_CAPACITY := $(shell xmllint --xpath 'string(/device[@name="Android"]/item[@name="battery.capacity"])' $(POWER_PROFILE))
-$(warning Battery_capacity detected is $(BATTERY_CAPACITY))
+$(warning sum profiles=$(PROFILES) dev=$(DEVICE_PACKAGE_OVERLAYS) file=$(POWER_PROFILE) Battery_capacity detected is $(BATTERY_CAPACITY))
 $(shell mkdir -p $(PRODUCT_OUT)/system/etc/init)
 $(shell echo -e "on boot\n    setprop ro.hybris.battery.capacity $(BATTERY_CAPACITY)" > $(PRODUCT_OUT)/system/etc/init/hybris_extras.rc)
 endif
