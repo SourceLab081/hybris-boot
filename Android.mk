@@ -365,7 +365,7 @@ ifeq ($(strip $(PROVIDE_POWER_PROFILE)),1)
 POWER_PROFILE := $(foreach d, $(DEVICE_PACKAGE_OVERLAYS), \
    $(shell find $(d) -name power_profile.xml) \
 )
-BATTERY_CAPACITY := $(shell grep -oP 'name="battery.capacity"[^>]*>\K[0-9]+' $(POWER_PROFILE))
+BATTERY_CAPACITY := $(shell sed -n 's/.*name="battery.capacity"[^>]*>\([^<]*\)<.*/\1/p' $(POWER_PROFILE))
 #BATTERY_CAPACITY := $(shell xmllint --xpath 'string(/device[@name="Android"]/item[@name="battery.capacity"])' $(POWER_PROFILE))
 #BATTERY_CAPACITY := $(shell python3 -c "import xml.etree.ElementTree as ET; tree = ET.parse('$(POWER_PROFILE)'); root = tree.getroot(); print(root.find('.//item[@name=\"battery.capacity\"]').text)")
 $(warning sum profiles=$(PROFILES) dev=$(DEVICE_PACKAGE_OVERLAYS) file=$(POWER_PROFILE) Battery_capacity detected is $(BATTERY_CAPACITY))
